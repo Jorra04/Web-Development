@@ -15,7 +15,7 @@ function clickMe(){
 }
 
 
-function enter_pressed(){
+// function enter_pressed(){
     
-    document.getElementById("header").innerHTML = ++nums;
-}
+//     document.getElementById("header").innerHTML = ++nums;
+// }

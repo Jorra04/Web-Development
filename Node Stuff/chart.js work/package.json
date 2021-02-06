@@ -1,0 +1,17 @@
+{
+  "name": "chart.js-work",
+  "version": "1.0.0",
+  "description": "Working with charts in Node.",
+  "main": "index.js",
+  "dependencies": {
+    "chart.js": "^2.9.4",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Jorra Singh",
+  "license": "ISC"
+}

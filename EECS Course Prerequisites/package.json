@@ -1,0 +1,15 @@
+{
+  "name": "eecs-prereq-checker",
+  "version": "1.0.0",
+  "description": "A program to check what prerequisites a given course has.",
+  "main": "consumingJSON.js",
+  "scripts": {
+    "start": "nodemon consumingJSON.js"
+  },
+  "author": "Jorra Singh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}

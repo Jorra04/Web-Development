@@ -2,7 +2,7 @@ var nums = 0;
 
 var click = new Audio("sounds/ding.mp3");
 var reset_button = new Audio("sounds/reset.mp3");
-function increment(){
+const increment = () =>{
     click.play();
     nums++;
     if(nums == 1){

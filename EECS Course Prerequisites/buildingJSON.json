@@ -1,0 +1,243 @@
+[
+    {
+        "course_code" : "LE/EECS 1001",
+        "prerequisites" : [
+            
+        ]
+    },
+
+     {
+        "course_code" : "LE/EECS 1011",
+        "prerequisites" : [
+            
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1012",
+        "prerequisites" : [
+            "LE/EECS 2032",
+            "LE/EECS 3311",
+            "LE/EECS 2201",
+            "LE/EECS 3101"
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1019",
+        "prerequisites" : [
+            "SC/MATH 1190"
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1021",
+        "prerequisites" : [
+            "LE/EECS 1011"
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1022",
+        "prerequisites" : [
+            "LE/EECS 1012", 
+            "LE/EECS 1015"
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1028",
+        "prerequisites" : [
+            
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1520",
+        "prerequisites" : [
+            
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1530",
+        "prerequisites" : [
+            
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1540",
+        "prerequisites" : [
+            
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1541",
+        "prerequisites" : [
+            "SC/MATH 1013"
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1560",
+        "prerequisites" : [
+            "SC/MATH 1300"
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1570",
+        "prerequisites" : [
+            "SC/MATH 1505"
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1710",
+        "prerequisites" : [
+        
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1720",
+        "prerequisites" : [
+            "LE/EECS 1710"
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1910",
+        "prerequisites" : [
+           
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 1911",
+        "prerequisites" : [
+           
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 2001",
+        "prerequisites" : [
+           "LE/EECS 1021",
+           "LE/EECS 1022",
+           "LE/EECS 1720",
+           "LE/EECS 1030", 
+           "LE/EECS 1028", 
+           "SC/MATH 1028", 
+           "LE/EECS 1019",  
+           "SC/MATH 1019"
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 2011",
+        "prerequisites" : [
+           "LE/EECS 1030", 
+           "LE/EECS 2030", 
+           "LE/EECS 1028" ,
+           "SC/MATH 1028",  
+           "LE/EECS 1019", 
+           "SC/MATH 1019"
+        ]
+    },
+    {
+        "course_code" : "LE/EECS 2021",
+        "prerequisites" : [
+            "LE/EECS 1021",
+            "LE/EECS 1022",
+            "LE/EECS 1720",
+            "LE/EECS 1030"
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 2030",
+        "prerequisites" : [
+            "LE/EECS 1021",
+            "LE/EECS 1020",
+            "LE/EECS 1022",
+            "LE/EECS 1720"
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 2031",
+        "prerequisites" : [
+            "LE/EECS 1021", 
+            "LE/EECS 1022", 
+            "LE/EECS 1030", 
+            "LE/EECS 1720"
+              
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 2032",
+        "prerequisites" : [
+            "LE/EECS 1021", 
+            "LE/EECS 1022",
+            "LE/EECS 2021"
+              
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 2200",
+        "prerequisites" : [
+            "SC/PHYS 1010",
+            "SC/PHYS 1801"
+              
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 2210",
+        "prerequisites" : [
+            "LE/EECS 2200"
+              
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 2311",
+        "prerequisites" : [
+            "LE/EECS 1030",
+            "LE/EECS 2030"
+              
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 2501",
+        "prerequisites" : [
+            "LE/EECS 1020",
+            "LE/EECS 1021",
+            "LE/EECS 1022",
+            "LE/EECS 1530"
+              
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 2910",
+        "prerequisites" : [
+            "12 EECS credits in the 1000 level"
+              
+        ]
+    },
+
+    {
+        "course_code" : "LE/EECS 2911",
+        "prerequisites" : [
+            "12 EECS credits in the 1000 level"
+              
+        ]
+    }
+]

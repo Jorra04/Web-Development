@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var coursePrerequisites = [];
-var jsonOBJ = JSON.parse(fs.readFileSync("C:\\Users\\jorra\\OneDrive\\Desktop\\buildingJSON.json"));
+var jsonOBJ = JSON.parse(fs.readFileSync(__dirname + "/buildingJSON.json"));
 
 app.get('/', (req, res) => {
     coursePrerequisites = [];
@@ -37,7 +37,7 @@ const searchForPrerequisite = (course_to_search) =>{
     if(!course_to_search.includes("LE/EECS")){
         course_to_search = "LE/EECS " + course_to_search.replace(/\D/g,'');
     }
-    console.log(course_to_search);
+    // console.log(course_to_search);
     jsonOBJ.forEach(course => {
         course.prerequisites.forEach(tmpCourseID =>{
             if(tmpCourseID === course_to_search){

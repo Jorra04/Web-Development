@@ -18,9 +18,10 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
+    console.log(res);
     var name_to_query = req.body.name_to_query;
     
-    searchForPrerequisite(name_to_query);
+    FindDependantCourses(name_to_query);
     if(coursePrerequisites.length != 0){
         res.send(coursePrerequisites.join(", "));
     }
@@ -28,12 +29,9 @@ app.post('/', (req, res) => {
         res.send("No Courses Require this course!");
     }
     
-    
-
-    
 });
 
-const searchForPrerequisite = (course_to_search) =>{
+const FindDependantCourses = (course_to_search) =>{
     if(!course_to_search.includes("LE/EECS")){
         course_to_search = "LE/EECS " + course_to_search.replace(/\D/g,'');
     }

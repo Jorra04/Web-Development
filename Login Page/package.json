@@ -1,0 +1,19 @@
+{
+  "name": "login-page",
+  "version": "1.0.0",
+  "description": "A general log in page with basic validation.",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Jorra Singh",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.2",
+    "nodemon": "^2.0.7",
+    "password-hash": "^1.2.2"
+  }
+}

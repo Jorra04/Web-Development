@@ -7,6 +7,12 @@ let SUBJECT = 'EECS';
 let STUDY_SESSION = 'FW' ;
 const link = `https://w2prod.sis.yorku.ca/Apps/WebObjects/cdm.woa/wa/crsq1?faculty=${FACULTY}&subject=${SUBJECT}&studysession=${STUDY_SESSION}`
 
+//delete the text file before hand.
+fs.unlink(`${__dirname}/res.txt`, (err)=>{
+    if(err){
+        console.log(err.message);
+    }
+});
 
 const getTorontoRes = async ()=>{
     await axios.get(link)
@@ -17,7 +23,7 @@ const getTorontoRes = async ()=>{
         $(links).each( async (i, link) => {
             
             if($(link).text() === 'Fall/Winter 2020-2021 Course Schedule'){
-                // console.log(`https://w2prod.sis.yorku.ca${$(link).attr('href')}`);
+              
                 await axios.get(`https://w2prod.sis.yorku.ca${$(link).attr('href')}`)
                 .then((res)=>{
                     const $ = cheerio.load(res.data);

@@ -88,11 +88,31 @@ const getInput = (text) => {
 
 }
 
+const getWinner = (player_score, dealer_score) => {
+    if(player_score > dealer_score){
+        return `Congratulations, you've beaten the dealer!\n`+
+        `Your Score: ${player_score}\n`+
+        `Dealer's Score:${dealer_score}\n`;
+    }
+    else if (player_score < dealer_score) {
+        return `The house wins! You've been beaten by the dealer!\n`+
+        `Your Score: ${player_score}\n`+
+        `Dealer's Score:${dealer_score}\n`;
+    }
+    else {
+        return `It's a push! The dealer and yourself have the same value.\n` +
+        `Your Score: ${player_score}\n`+
+        `Dealer's Score:${dealer_score}\n`;
+    }
+}
+
 
 start()
     .then(async (deck_information) => {
-
-        if (deck_information.player_blackjack) {
+        if (deck_information.player_blackjack && deck_information.dealer_blackjack) {
+            console.log("Push! You and the Dealer both have BlackJack.");
+        }
+        else if (deck_information.player_blackjack) {
             console.log("Congratulations! You have BlackJack.");
         }
         else if (deck_information.dealer_blackjack) {
@@ -101,19 +121,56 @@ start()
         else {
             let player_score = getValues(deck_information.players_cards);
             let dealer_score = getValues(deck_information.dealers_card);
-
-            while (getInput(`You currently have ${player_score} and the dealer has ${dealer_score}. Would you like to hit?`)) {
+            let player_bust = false;
+            let dealer_bust = false;
+            while (getInput(`You currently have ${player_score} and the dealer has ${dealer_score}. Would you like to hit? `)) {
                 
                 try {
                     const addedVal = await dealCards(deck_information.deck_id);
                     player_score+= addedVal;
-                    console.log(player_score);
+                    if(player_score > 21){
+                        console.log(`You have gone bust!`);
+                        player_bust = true;
+                        break;
+                    }
+                    else if(player_score === 21){
+                        console.log("Congratulations! You have BlackJack.");
+                        break;
+                    }
+                    
                 } catch(err) {
                     console.log(err.message);
                 }
             }
 
             console.log('dealer is hitting now');
+
+            while (dealer_score < 17 && !player_bust) {
+                
+                try {
+                    const addedVal = await dealCards(deck_information.deck_id);
+                    dealer_score+= addedVal;
+                    if(dealer_score > 21){
+                        console.log(`Dealer has gone bust!`);
+                        dealer_bust = true;
+                        break;
+                    }
+                    else if(dealer_score === 21){
+                        console.log("The dealer has BlackJack.");
+                        break;
+                    }
+                } catch(err) {
+                    console.log(err.message);
+                }
+            }
+
+            if(!(dealer_bust || player_bust)){
+                let result = getWinner(player_score, dealer_score);
+
+                console.log(result);
+            }
+            
+
         }
 
     })

@@ -24,28 +24,28 @@ const isFaceCard = (card) => {
 
 
 
-const getCardValue = (card) => {
+const getCardValue = (card,  player_current_score = 0) => {
     let players_current_value = 0;
     if (isFaceCard(card)) {
         players_current_value += 10;
     } else if (card.value === "ACE") {
-        players_current_value += aceHighOrLow(players_current_value);
+        players_current_value += aceHighOrLow(player_current_score);
     } else {
         // console.log(card.value);
         players_current_value += Number(card.value);
     }
-
+    // console.log(`getCardValue returned ${players_current_value}`);
     return players_current_value;
 }
 
 
 //Convert the value of the cards
-const getValues = (cards) => {
+const getValues = (cards, player_current_score = 0) => {
     let players_current_value = 0;
     cards.forEach((card) => {
-        players_current_value += getCardValue(card)
+        players_current_value += getCardValue(card, player_current_score)
     });
-
+    // console.log(`getValues returned ${players_current_value}`);
     return players_current_value;
 };
 
@@ -83,11 +83,15 @@ const start = async () => {
     }
 };
 
-const dealCards = async (deck_identifier) => {
+const dealCards = async (deck_identifier, player_current_score=0) => {
+    console.log(player_current_score);
     const dealtCardsResp = await axios.get(
         `https://deckofcardsapi.com/api/deck/${deck_identifier}/draw/?count=1`
     );
-    return getValues(dealtCardsResp.data.cards);
+
+    console.log(dealtCardsResp.data.cards);
+    // console.log(`dealCards returned ${getValues(dealtCardsResp.data.cards,player_current_score)}`);
+    return getValues(dealtCardsResp.data.cards,player_current_score);
 };
 
 const getInput = (text) => {
@@ -161,7 +165,8 @@ start()
                 )
             ) {
                 try {
-                    const addedVal = await dealCards(deck_information.deck_id);
+                    const addedVal = await dealCards(deck_information.deck_id, player_score);
+                    console.log(`You drew a card with a value of ${addedVal}`);
                     player_score += addedVal;
                     if (player_score > 21) {
                         console.log(`You have gone bust!`);
@@ -183,7 +188,7 @@ start()
             while (dealer_score < 17) {
 
                 try {
-                    const addedVal = await dealCards(deck_information.deck_id);
+                    const addedVal = await dealCards(deck_information.deck_id, dealer_score);
                     await sleep(3000);
                     console.log(`The Dealer drew a card with a value of ${addedVal}`);
                     dealer_score += addedVal;
@@ -204,13 +209,7 @@ start()
                     console.log(err.message);
                 }
             }
-
-            // if(player_bust && !dealer_bust){
-            //     console.log(getWinner(player_score, dealer_score));
-            // }
-            // else if(!(dealer_bust || player_bust)){
-            //     console.log(getWinner(player_score, dealer_score));
-            // }
+            
             if (!(player_blackjack || dealer_blackjack)) {
                 console.log(
                     getWinner(player_score, player_bust, dealer_score, dealer_bust)

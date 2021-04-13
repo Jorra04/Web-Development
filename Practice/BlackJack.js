@@ -61,7 +61,7 @@ const getCardValue = (card,  player_current_score = 0) => {
 /**
  * Convert the value of an array of cards
  * @param {Array} cards An array of cards. 
- * @param {*} player_current_score  The player's current value which will be passed
+ * @param {Number} player_current_score  The player's current value which will be passed
  * to the getCardValue() to determine how the Ace will be treated.
  * @returns the numerical representation of the cards passed.
  */

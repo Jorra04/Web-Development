@@ -1,6 +1,12 @@
 const axios = require("axios");
 const prompt = require("prompt-sync")({ sigint: true });
 
+
+const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 //Function to check if ace should be treated as high or low
 const aceHighOrLow = (players_current_value) => {
     if (Number(players_current_value) + 11 > 21) {
@@ -16,18 +22,28 @@ const isFaceCard = (card) => {
     );
 };
 
+
+
+const getCardValue = (card) => {
+    let players_current_value = 0;
+    if (isFaceCard(card)) {
+        players_current_value += 10;
+    } else if (card.value === "ACE") {
+        players_current_value += aceHighOrLow(players_current_value);
+    } else {
+        // console.log(card.value);
+        players_current_value += Number(card.value);
+    }
+
+    return players_current_value;
+}
+
+
 //Convert the value of the cards
 const getValues = (cards) => {
     let players_current_value = 0;
     cards.forEach((card) => {
-        if (isFaceCard(card)) {
-            players_current_value += 10;
-        } else if (card.value === "ACE") {
-            players_current_value += aceHighOrLow(players_current_value);
-        } else {
-            // console.log(card.value);
-            players_current_value += Number(card.value);
-        }
+        players_current_value += getCardValue(card)
     });
 
     return players_current_value;
@@ -84,7 +100,7 @@ const getInput = (text) => {
 };
 
 const getWinner = (player_score, player_bust, dealer_score, dealer_bust) => {
- 
+
     if (player_bust) {
         return (
             `You've gone bust! The house wins this hand.\n` +
@@ -133,7 +149,8 @@ start()
             console.log("The dealer has BlackJack.");
         } else {
             let player_score = getValues(deck_information.players_cards);
-            let dealer_score = getValues(deck_information.dealers_card);
+            let dealer_score = getCardValue(deck_information.dealers_card[0]); //Only want to see the first card the dealer has.
+            console.log(deck_information.dealers_card);
             let player_bust = false;
             let dealer_bust = false;
             let player_blackjack = false;
@@ -161,11 +178,17 @@ start()
             }
 
             console.log("dealer is hitting now");
-
+            dealer_score += getCardValue(deck_information.dealers_card[1]);
+            console.log(`After the flip ${dealer_score}`);
             while (dealer_score < 17) {
+
                 try {
                     const addedVal = await dealCards(deck_information.deck_id);
+                    await sleep(3000);
+                    console.log(`The Dealer drew a card with a value of ${addedVal}`);
                     dealer_score += addedVal;
+                    console.log(`The Dealer has ${dealer_score}.`);
+                    
                     if (dealer_score > 21) {
                         console.log(`Dealer has gone bust!`);
                         dealer_bust = true;
@@ -175,6 +198,8 @@ start()
                         player_blackjack = true;
                         break;
                     }
+                    console.log('here');
+
                 } catch (err) {
                     console.log(err.message);
                 }
@@ -186,7 +211,7 @@ start()
             // else if(!(dealer_bust || player_bust)){
             //     console.log(getWinner(player_score, dealer_score));
             // }
-            if(!(player_blackjack || dealer_blackjack)){
+            if (!(player_blackjack || dealer_blackjack)) {
                 console.log(
                     getWinner(player_score, player_bust, dealer_score, dealer_bust)
                 );

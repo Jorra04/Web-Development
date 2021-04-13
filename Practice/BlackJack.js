@@ -1,13 +1,23 @@
 const axios = require("axios");
 const prompt = require("prompt-sync")({ sigint: true });
 
-
+/**
+ * Function that causes program to halt. Different from setTimeout as
+ * setTimeout is non blocking, but via asynchronous code we can use await
+ * to stop the run of the code for a specified amount of time.
+ * @param {Number} ms Number of Miliseconds to sleep for.
+ * @returns {Promise} The promise to be resolved after the timeout is done.
+ */
 const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
-//Function to check if ace should be treated as high or low
+/**
+ * Function to check if ace should be treated as high or low
+ * @param {Number} players_current_value The player's current value which will be used
+ * to determine how the ace should be treated.
+ * @returns {Number} The number that the function determines should be added to the current value.
+ */
 const aceHighOrLow = (players_current_value) => {
     if (Number(players_current_value) + 11 > 21) {
         return 1;
@@ -15,7 +25,11 @@ const aceHighOrLow = (players_current_value) => {
     return 11;
 };
 
-//function to check if the the card is a face card.
+/**
+ * Function to check if the the card is a face card.
+ * @param {String} card The string representation of the card.
+ * @returns {boolean} returns true if the card is a face card and false if not. 
+ */
 const isFaceCard = (card) => {
     return (
         card.value === "JACK" || card.value === "QUEEN" || card.value === "KING"
@@ -23,7 +37,13 @@ const isFaceCard = (card) => {
 };
 
 
-
+/**
+ * Convert the value of a card
+ * @param {String} card The string representation of the card.
+ * @param {Number} player_current_score The player's current value which will be passed
+ * to the aceHighOrLow() to determine how the Ace will be treated.
+ * @returns the numerical representation of the card passed.
+ */
 const getCardValue = (card,  player_current_score = 0) => {
     let players_current_value = 0;
     if (isFaceCard(card)) {
@@ -38,8 +58,13 @@ const getCardValue = (card,  player_current_score = 0) => {
     return players_current_value;
 }
 
-
-//Convert the value of the cards
+/**
+ * Convert the value of an array of cards
+ * @param {Array} cards An array of cards. 
+ * @param {*} player_current_score  The player's current value which will be passed
+ * to the getCardValue() to determine how the Ace will be treated.
+ * @returns the numerical representation of the cards passed.
+ */
 const getValues = (cards, player_current_score = 0) => {
     let players_current_value = 0;
     cards.forEach((card) => {
@@ -49,7 +74,16 @@ const getValues = (cards, player_current_score = 0) => {
     return players_current_value;
 };
 
-//Start and deal the first two cards
+/**
+ * Responsible for getting the deckID and dealing the first two cards to each player
+ * @returns JSON Object which has all the essential attributes of the startup
+ * 
+ * deck_id
+ * players_cards
+ * player_blackjack
+ * dealers_card
+ * dealer_blackjack
+ */
 const start = async () => {
     let dealers_card = [];
     let players_cards = [];
@@ -83,16 +117,31 @@ const start = async () => {
     }
 };
 
+
+/**
+ * This function deals 1 card to the caller.
+ * @param {String} deck_identifier A string code recieved by the API on start up. Responsible
+ * for keeping track of which deck(s) we are dealing from.
+ * @param {Number} player_current_score The player's current value which will be passed to
+ * different susequet functions that this function invokes.
+ * @returns Returns the value of the card dealt.
+ */
 const dealCards = async (deck_identifier, player_current_score=0) => {
-    console.log(player_current_score);
     const dealtCardsResp = await axios.get(
         `https://deckofcardsapi.com/api/deck/${deck_identifier}/draw/?count=1`
     );
 
-    console.log(dealtCardsResp.data.cards);
+    // console.log(dealtCardsResp.data.cards);
     // console.log(`dealCards returned ${getValues(dealtCardsResp.data.cards,player_current_score)}`);
     return getValues(dealtCardsResp.data.cards,player_current_score);
 };
+
+
+/**
+ * A function that allows input to be gathered with different text prompts.
+ * @param {String} text A String which will prompt the user with whatever value it is passed. 
+ * @returns a boolean. True if the received response deems a continuation, and false if it does not.
+ */
 
 const getInput = (text) => {
     let guess = prompt(text);
@@ -103,6 +152,16 @@ const getInput = (text) => {
     return false;
 };
 
+/**
+ * A function to determine if the dealer won or the player won.
+ * @param {Number} player_score A number which keeps track of the player's current score.
+ * @param {boolean} player_bust A boolean which is true if the player has busted and false if the
+ * player has not.
+ * @param {Number} dealer_score A number which keeps track of the dealer's current score.
+ * @param {boolean} dealer_bust A boolean which is true if the dealer has busted and false if the
+ * dealer has not.
+ * @returns A string which represents the state of the game based on the below logic.
+ */
 const getWinner = (player_score, player_bust, dealer_score, dealer_bust) => {
 
     if (player_bust) {
@@ -154,7 +213,7 @@ start()
         } else {
             let player_score = getValues(deck_information.players_cards);
             let dealer_score = getCardValue(deck_information.dealers_card[0]); //Only want to see the first card the dealer has.
-            console.log(deck_information.dealers_card);
+            // console.log(deck_information.dealers_card);
             let player_bust = false;
             let dealer_bust = false;
             let player_blackjack = false;
@@ -209,7 +268,7 @@ start()
                     console.log(err.message);
                 }
             }
-            
+
             if (!(player_blackjack || dealer_blackjack)) {
                 console.log(
                     getWinner(player_score, player_bust, dealer_score, dealer_bust)

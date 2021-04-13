@@ -213,7 +213,8 @@ start()
         } else {
             let player_score = getValues(deck_information.players_cards);
             let dealer_score = getCardValue(deck_information.dealers_card[0]); //Only want to see the first card the dealer has.
-            // console.log(deck_information.dealers_card);
+        
+
             let player_bust = false;
             let dealer_bust = false;
             let player_blackjack = false;
@@ -242,7 +243,7 @@ start()
             }
 
             console.log("dealer is hitting now");
-            dealer_score += getCardValue(deck_information.dealers_card[1]);
+            dealer_score += getCardValue(deck_information.dealers_card[1]); //add the flipped value.
             console.log(`After the flip ${dealer_score}`);
             while (dealer_score < 17) {
 
@@ -262,7 +263,6 @@ start()
                         player_blackjack = true;
                         break;
                     }
-                    console.log('here');
 
                 } catch (err) {
                     console.log(err.message);

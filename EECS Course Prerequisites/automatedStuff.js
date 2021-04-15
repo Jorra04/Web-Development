@@ -78,10 +78,15 @@ parsePrerequisites(someData);
 
 // getCourses();
 
-// let rawdata = fs.readFileSync('CourseList.json');
-// let student = JSON.parse(rawdata);
-// student.forEach(element =>{
-//     functionToCall(element.course_code, element.prerequisites);
 
-// });
-// console.log("Finished Uploading Files");
+let functionToCall = (course_code, prerequisites ) => {
+    
+}
+
+let rawdata = fs.readFileSync('CourseList.json');
+let student = JSON.parse(rawdata);
+student.forEach(element =>{
+    functionToCall(element.course_code, element.prerequisites);
+
+});
+console.log("Finished Uploading Files");

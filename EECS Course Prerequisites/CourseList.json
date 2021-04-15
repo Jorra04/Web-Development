@@ -386,5 +386,321 @@
         "prerequisites": [
             "EECS credits in the 2000 level"
         ]
+    },
+    {
+        "course_code": "LE/EECS 4070",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "successful completion of 24 credits in EECS and permission of course coordinator"
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4080",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "permission of the Instructor"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4088",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "permission of the Instructor"
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4090",
+        "prerequisites": [
+            "LE/EECS 3311",
+            "LE/EECS 3101",
+            "LE/EECS 3342"
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4101",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "LE/EECS 2001",
+            "LE/EECS 3101"
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4115",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+           "LE/EECS 2001",
+            "LE/EECS 3101"
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4161",
+        "prerequisites": [
+            "At least 12 credits from 2000-level (or higher) MATH courses (without second digit \"5\", or second digit \"7\")",
+            "LE/EECS 3101",
+            "permission of the Instructor."
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4201",
+        "prerequisites": [
+            "LE/EECS 3201",
+            "LE/EECS 3221"
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4214",
+        "prerequisites": [
+            "LE/EECS 3213",
+            "SC/MATH 2030",
+            "SC/MATH 2930",
+            "LE/EECS 3451", 
+            "LE/EECS 3602", 
+            "LE/ESSE 4020", 
+            "SC/MATH 4830", 
+            "SC/PHYS 4060",
+            "SC/PHYS 4250"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4215",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "LE/EECS 3213"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4312",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "LE/EECS 3311"
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4313",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "LE/EECS 3311"
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4314",
+        "prerequisites": [
+            "LE/EECS 2030",
+             "LE/EECS 1030",
+             "LE/EECS 3311"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4315",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "LE/EECS 3342"
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4401",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "LE/EECS 3401"
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4404",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "SC/MATH 2030",
+            "SC/MATH 2930",
+            "SC/MATH 1131"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4412",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "LE/EECS 3101",
+            "LE/EECS 3421",
+            "SC/MATH 2030",
+            "SC/MATH 2930",
+            "SC/MATH 1131"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4413",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4414",
+        "prerequisites": [
+            "LE/EECS 3421",
+            "LE/EECS 3101",
+            "SC/MATH 2030",
+            "SC/MATH 2930"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4415",
+        "prerequisites": [
+            "LE/EECS 3421",
+            "LE/EECS 3101"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4421",
+        "prerequisites": [
+            "SC/MATH 1025",
+            "SC/MATH 1310",
+            "LE/EECS 2031",
+            "LE/EECS 2032"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4441",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "LE/EECS 3461"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4452",
+        "prerequisites": [
+            "LE/EECS 3451",
+            "LE/EECS 3602"
+        ]
+    },
+    {
+        "course_code": "LE/EECS 4461",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "LE/EECS 3461"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4462",
+        "prerequisites": [
+            "LE/EECS 2031"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4417",
+        "prerequisites": [
+            "SC/MATH 1025",
+            "SC/MATH 1310",
+            "LE/EECS 3431"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4480",
+        "prerequisites": [
+            "Restricted to students in the Computer Security degree",
+            "Students must have passed 40 EECS or CSE credits",
+            "Permission of the Instructor is needed"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4481",
+        "prerequisites": [
+            "LE/EECS 2030",
+            "LE/EECS 1030",
+            "LE/EECS 3214"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4482",
+        "prerequisites": [
+            "LE/EECS 3213",
+            "LE/EECS 3214",
+            "LE/EECS 3482"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4612",
+        "prerequisites": [
+            "LE/EECS 2200",
+            "LE/EECS 2210",
+            "LE/EECS 3201"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4613",
+        "prerequisites": [
+            "LE/EECS 2210",
+            "LE/EECS 3603"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4614",
+        "prerequisites": [
+            "LE/EECS 3604",
+            "SC/PHYS 4020",
+            "LE/EECS 2210",
+            "SC/PHYS 3150"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4622",
+        "prerequisites": [
+            "LE/EECS 2200",
+            "LE/EECS 3603",
+            "SC/PHY 2020"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4640",
+        "prerequisites": [
+            "LE/EECS 2602",
+            "LE/EECS 3451"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4645",
+        "prerequisites": [
+            "LE/EECS 2210"
+        ]
+    },
+
+    {
+        "course_code": "LE/EECS 4700",
+        "prerequisites": [
+            "Only open to students in the final year of the Digital Media program"
+        ]
     }
-]
+] 

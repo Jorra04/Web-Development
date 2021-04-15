@@ -7,7 +7,7 @@ require('dotenv/config');
 
 const BlackJack = require('./BlackJack');
 let deckIdentifier = '';
-
+//This is a comment to test out the git branch system
 //Middlewares
 app.use('/static', express.static('public'));
 app.use(bodyParser.json());

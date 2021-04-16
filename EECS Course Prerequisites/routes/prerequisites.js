@@ -4,9 +4,9 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get('/:faculty/:course_id/:courses_after', async (req, res) => {
-    if (req.params.courses_after == 'true') {
-        let full_course_id = `${req.params.faculty} ${req.params.course_id}`;
+router.get('/coursesRequired/:faculty/:course_id/', async (req, res) => {
+    let full_course_id = `${req.params.faculty} ${req.params.course_id}`;
+    try {
         const foundCourse = await Course.findOne({ course_id: full_course_id });
 
         let foundPrerequisites = foundCourse.prerequisites;
@@ -14,27 +14,39 @@ router.get('/:faculty/:course_id/:courses_after', async (req, res) => {
 
         res.json({
             message: `The following courses are required before taking ${full_course_id}`,
-            course_id : full_course_id,
-            courses : foundPrerequisites
+            course_id: full_course_id,
+            courses: foundPrerequisites
         });
-    } else {
-        let full_course_id = `${req.params.faculty} ${req.params.course_id}`;
+    } catch (err) {
+        res.json({
+            error: err.message,
+        });
+    }
 
+});
+
+router.get('/coursesRequiring/:faculty/:course_id/', async (req, res) => {
+    let full_course_id = `${req.params.faculty} ${req.params.course_id}`;
+
+    try {
         const foundCourse = await Course.find();
         let postrequisites = [];
         foundCourse.forEach(courses => {
-            courses.prerequisites.forEach(course => {
-                if(course == full_course_id){
-                    postrequisites.push(courses.course_id);
-                }
-            })
-        })
 
+            if (courses.prerequisites.includes(full_course_id)) {
+                postrequisites.push(courses.course_id);
+            }
+
+        });
 
         res.json({
             message: `The following courses require ${full_course_id}`,
-            course_id : full_course_id,
-            courses : postrequisites
+            course_id: full_course_id,
+            courses: postrequisites
+        });
+    } catch (err) {
+        res.json({
+            error: err.message,
         });
     }
 });

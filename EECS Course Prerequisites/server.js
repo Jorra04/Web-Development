@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 //Connection to DataBase
 mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PW}@cluster0.zbbk9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
     { useNewUrlParser: true },
-    () => {
+    () => {   
         console.log("We are connected!");
 });
 

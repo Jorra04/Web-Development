@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get('/coursesRequired/:faculty/:course_id/', async (req, res) => {
     let full_course_id = `${req.params.faculty} ${req.params.course_id}`;
+  
     try {
         const foundCourse = await Course.findOne({ course_id: full_course_id });
 

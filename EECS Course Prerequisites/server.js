@@ -5,10 +5,12 @@ const axios = require('axios');
 const mongoose = require('mongoose');
 require('dotenv/config');
 const Course = require('./models/Course');
+const CourseRouter = require('./routes/courses');
 
 
 //Middlewares
 app.use('/static', express.static('public'));
+app.use('/courses',CourseRouter);
 app.use(bodyParser.json());
 
 //Get and Post
@@ -17,8 +19,9 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/courses', (req,res) => {
-    res.json({message : "These are all the courses"});
+app.get('/courses', async (req,res) => {
+    const foundCourse = await Course.find();
+    res.json({courses : foundCourse});
 });
 
 app.post('/newCourse', async (req,res)=>{
@@ -49,12 +52,8 @@ app.post('/newCourse', async (req,res)=>{
     
 });
 
-
-
-
-
 //Connection to DataBase
-mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PW}$@cluster0.zbbk9.mongodb.net/restAPIDb?retryWrites=true&w=majority`,
+mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PW}@cluster0.zbbk9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
     { useNewUrlParser: true },
     () => {
         console.log("We are connected!");

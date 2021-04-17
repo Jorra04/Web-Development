@@ -8,9 +8,23 @@
     <title>EECS Prerequisite Checker</title>
     <script src="./index.js"></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
+
+    <div class="topnav">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+
+
+    <div class="header" id="header">
+        <h1>EECS Prerequisite Checker</h1>
+    </div>
+
     <div class="input-fields" id="input">
 
         <select class="faculties" name="faculties" id="faculties">
@@ -18,9 +32,10 @@
             <option value="LE/ESSE">LE/ESSE</option>
             <option value="LE/ENG">LE/ENG</option>
         </select>
-        <input class="course-number" type="number" id="course-number" placeholder="Enter a Course Code!"  autocomplete="off">
+        <input class="course-number" type="number" id="course-number" placeholder="Enter a Course Code!"
+            autocomplete="off">
         <button class="search-course" id="search-course" onclick="findPrereq()">Find Prerequisite</button>
-        
+
 
         <script>
             var input = document.getElementById("course-number");
@@ -32,7 +47,14 @@
             });
         </script>
 
+        <div class="found-prerequisites" id="found-prerequisites">
+            <ul id="dynamic-list"></ul>
+        </div>
+
     </div>
+
+
+
 </body>
 
 </html>

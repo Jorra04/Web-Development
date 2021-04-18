@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <div class="outer">
         
@@ -25,8 +24,6 @@
             <a href="./contact.html">Contact</a>
 
         </div>
-        <!-- <img src="./images/YorkuLogoLion.png" alt="York University Logo" width="150" height="124"> -->
-
 
         <div class="york-logo">
             
@@ -52,6 +49,8 @@
                 autocomplete="off">
             <button class="search-course" id="search-course" onclick="findPrereq()">Find Prerequisite</button>
 
+            
+
 
             <script>
                 var input = document.getElementById("course-number");
@@ -62,9 +61,11 @@
                     }
                 });
             </script>
-
+            <div class="switch-search">
+                <span ><a href="./about.html">Click here to see which courses require the above course.</a></span>
+            </div>
             <div class="found-prerequisites" id="found-prerequisites">
-                <ul id="dynamic-list"></ul>
+                <ul class="dynamic-list" id="dynamic-list"></ul>
             </div>
 
         </div>

@@ -7,6 +7,14 @@ const findPrereq = () => {
     "LE/EECS 1024",
     "LE/EECS 1025",
     "LE/EECS 1026",
+    "LE/EECS 1023",
+    "LE/EECS 1024",
+    "LE/EECS 1025",
+    "LE/EECS 1026",
+    "LE/EECS 1023",
+    "LE/EECS 1024",
+    "LE/EECS 1025",
+    "LE/EECS 1026",
   ];
 
   if (prerequisite.length === 4) {

@@ -9,46 +9,69 @@
     <script src="./index.js"></script>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    <div class="topnav">
-        <a href="./index.html">Home</a>
-        <a href="./about.html">About</a>
-        <a href="#contact">Contact</a>
-    </div>
+    <div class="outer">
+        
+        
 
 
+        <div class="topnav">
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./contact.html">Contact</a>
 
-    <div class="header" id="header">
-        <h1>EECS Prerequisite Checker</h1>
-    </div>
-
-    <div class="input-fields" id="input">
-
-        <select class="faculties" name="faculties" id="faculties">
-            <option value="LE/EECS">LE/EECS</option>
-            <option value="LE/ESSE">LE/ESSE</option>
-            <option value="LE/ENG">LE/ENG</option>
-        </select>
-        <input class="course-number" type="number" id="course-number" placeholder="Enter a Course Code!"
-            autocomplete="off">
-        <button class="search-course" id="search-course" onclick="findPrereq()">Find Prerequisite</button>
+        </div>
+        <!-- <img src="./images/YorkuLogoLion.png" alt="York University Logo" width="150" height="124"> -->
 
 
-        <script>
-            var input = document.getElementById("course-number");
-            input.addEventListener("keyup", (event) => {
-                if (event.keyCode === 13) {
-                    event.preventDefault();
-                    document.getElementById("search-course").click();
-                }
-            });
-        </script>
+        <div class="york-logo">
+            
+            <a href="./index.html">
+                <img src="./images/YorkuLogoLion.png" alt="York University Logo" width="150" height="124">
+            </a>
+        </div>
 
-        <div class="found-prerequisites" id="found-prerequisites">
-            <ul id="dynamic-list"></ul>
+
+
+        <div class="header" id="header">
+            <h1>EECS Prerequisite Checker</h1>
+        </div>
+
+        <div class="input-fields" id="input">
+
+            <select class="faculties" name="faculties" id="faculties">
+                <option value="LE/EECS">LE/EECS</option>
+                <option value="LE/ESSE">LE/ESSE</option>
+                <option value="LE/ENG">LE/ENG</option>
+            </select>
+            <input class="course-number" type="number" id="course-number" placeholder="Enter a Course Code!"
+                autocomplete="off">
+            <button class="search-course" id="search-course" onclick="findPrereq()">Find Prerequisite</button>
+
+
+            <script>
+                var input = document.getElementById("course-number");
+                input.addEventListener("keyup", (event) => {
+                    if (event.keyCode === 13) {
+                        event.preventDefault();
+                        document.getElementById("search-course").click();
+                    }
+                });
+            </script>
+
+            <div class="found-prerequisites" id="found-prerequisites">
+                <ul id="dynamic-list"></ul>
+            </div>
+
+        </div>
+
+
+        <div class="footer-image">
+            <img class="outside-wave" src="./images/black-wave.png" alt="">
         </div>
 
     </div>

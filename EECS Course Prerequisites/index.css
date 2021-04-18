@@ -21,7 +21,17 @@ input[type="number"] {
   color: gray;
   text-decoration: none;
   font-family: 'Cairo', sans-serif;
+  transition-duration: 0.5s;
+  opacity: 80%;
   z-index: 10; 
+}
+
+.switch-search span a:hover{
+  color: black;
+  opacity: 100%;
+  font-size: 105%;
+  
+
 }
   .input-fields {
       position: absolute;
@@ -99,30 +109,7 @@ font-weight: bold;
 
 
 
-/* 
-Responsible for scroll wheel
-*/
-/* width */
-::-webkit-scrollbar {
-  width: 20px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px black; 
-  border-radius: 10px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #e31836; 
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #e31836; 
-}
 .header h1 {
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     border-right: .15em solid orange; /* The typwriter cursor */

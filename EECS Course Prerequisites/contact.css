@@ -5,7 +5,7 @@
     top: 50%;
     transform: translate(-50%, -80%);
     
-    /* border: 3px solid green;   */
+    border: 3px solid green;  
 }
 
 
@@ -16,8 +16,9 @@
 }
 
 .sender-body{
-    /* height:25px;
-    width:250px; */
+    
+    
+    resize: none;
     border-radius: 10px;
     outline: none;
     border: 2px solid black;

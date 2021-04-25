@@ -29,7 +29,7 @@
         <div class="york-logo">
             
             <a href="./index.html">
-                <img src="./images/YorkuLogoLion.png" alt="York University Logo" width="120" height="99">
+                <img src="./images/YorkuLogoLion.png" draggable="false" alt="York University Logo" width="120" height="99">
             </a>
         </div>
 
@@ -48,7 +48,7 @@
             </select>
             <input class="course-number" type="number" id="course-number" placeholder="Enter a Course Code!"
                 autocomplete="off">
-            <button class="search-course" id="search-course" onclick="findPrereq()">Find Prerequisite</button>
+            <button class="search-course" id="search-course" onclick="findPrereq()">Search</button>
 
             
 
@@ -62,9 +62,12 @@
                     }
                 });
             </script>
+
+            <!-- This should be the only difference between index and courses-requiring -->
             <div class="switch-search">
                 <span ><a href="./courses-requiring.html">Click here to see which courses require the above course.</a></span>
             </div>
+            <!-- This should be the only difference between index and courses-requiring -->
             
             <div class="found-prerequisites" id="found-prerequisites">
                 <h2 class="your-courses-header" id=your-courses-header></h1>

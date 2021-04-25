@@ -18,15 +18,19 @@ const findPrereq = async () => {
         "your-courses-header"
       ).innerHTML = `Found Prerequistes for ${course_faculty} ${course_code}`;
     } catch (err) {
+      
+      let ul = document.getElementById("dynamic-list"); //Get the unordered list we want to manipulate.
+      ul.querySelectorAll("*").forEach((n) => n.remove()); //Remove all the current list items.
+
       document.getElementById(
         "your-courses-header"
       ).innerHTML = `"${course_faculty} ${course_code}" is either not recognized by this program or does not exist!`;
     }
+    let ul = document.getElementById("dynamic-list"); //Get the unordered list we want to manipulate.
+    ul.querySelectorAll("*").forEach((n) => n.remove()); //Remove all the current list items.
 
     if (response_received) {
-      let ul = document.getElementById("dynamic-list"); //Get the unordered list we want to manipulate.
-
-      ul.querySelectorAll("*").forEach((n) => n.remove()); //Remove all the current list items.
+      
       if (courses.length == 0) {
         document.getElementById(
           "your-courses-header"
@@ -75,17 +79,19 @@ const findPostreq = async () => {
 
       document.getElementById(
         "your-courses-header"
-      ).innerHTML = `Found Prerequistes for ${course_faculty} ${course_code}`;
+      ).innerHTML = `The following courses require "${course_faculty} ${course_code}":`;
     } catch (err) {
+      let ul = document.getElementById("dynamic-list"); //Get the unordered list we want to manipulate.
+      ul.querySelectorAll("*").forEach((n) => n.remove()); //Remove all the current list items.
       document.getElementById(
         "your-courses-header"
       ).innerHTML = `"${course_faculty} ${course_code}" is either not recognized by this program or does not exist!`;
     }
 
-    if (response_received) {
-      let ul = document.getElementById("dynamic-list"); //Get the unordered list we want to manipulate.
+    let ul = document.getElementById("dynamic-list"); //Get the unordered list we want to manipulate.
+    ul.querySelectorAll("*").forEach((n) => n.remove()); //Remove all the current list items.
 
-      ul.querySelectorAll("*").forEach((n) => n.remove()); //Remove all the current list items.
+    if (response_received) {
       if (courses.length == 0) {
         document.getElementById(
           "your-courses-header"

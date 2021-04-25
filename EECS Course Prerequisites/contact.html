@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./contactForm.js"></script>
+    
     <title>EECS Prerequisite Checker</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./contact.css">
@@ -15,7 +17,7 @@
 <body>
     <div class="outer">
 
-        
+
         <div class="topnav">
             <a href="./index.html">Home</a>
             <a href="./about.html">About</a>
@@ -24,7 +26,7 @@
 
         <div class="york-logo">
             <a href="./index.html">
-                <img src="./images/YorkuLogoLion.png" alt="York University Logo" width="120" height="99">
+                <img src="./images/YorkuLogoLion.png" draggable="false" alt="York University Logo" width="120" height="99">
             </a>
 
         </div>
@@ -37,18 +39,16 @@
 
 
         <div class="input-fields" id="input">
-            <!-- <div class="sender">
-                
-            </div>
-            <div class="body" >
-                
-            </div>
-            <div class="send-button">
-                
-            </div> -->
-            <input class="sender-email" type="text" placeholder="Please Enter Your Email...">
-            <textarea class="sender-body" name="body" id="body" cols="100" rows="15" placeholder="Enter Your Comments..."></textarea>
-            <button class="send" id="send">Send Email!</button>
+
+
+            <form class="form-input-fields" id="contact-form" method="POST" action="" onsubmit="return validateEntry();">
+                <input class="text-input" name="name" id="name-field" type="text" placeholder="Please Enter Your Name." required>
+                <input class="text-input" name="email" id="email-field" type="text" placeholder="Please Enter Your Email Address." required>
+
+                <textarea class="text-input" name="message" id="message-field" cols="30" rows="10" placeholder="Give us some feedback!"
+                    required></textarea>
+
+                <input type="submit" value="Send Message" id="submit-feedack">
 
         </div>
 

@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import Team from './Team'
+import React, {useEffect, useState} from 'react';
+import logo from './logo.png'
 
-function App() {
+const App = () => {
+
+  const exampleReq = `https://statsapi.web.nhl.com/api/v1/teams/`;
+
+  const [teams, setTeams] = useState([]);
+  useEffect( async () => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const resp = await fetch(exampleReq);
+    const data = await resp.json();
+    setTeams(data.teams);
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form className="search-form">
+        <img className="logo" src={logo}></img>
+        <input className="search-bar" type="text"/>
+        <button className="search-button"type="submit">Submit</button>
+      </form>
+      <div className="teams">
+      {teams.map(team => (
+        <Team key={team.abbreviation} name={team.name} abbreviation={team.abbreviation} established={team.firstYearOfPlay}/>
+      ))}
+      </div>
     </div>
   );
 }

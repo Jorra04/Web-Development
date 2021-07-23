@@ -11,14 +11,19 @@ function App() {
   return (
     <Router>
       <div>
+      <div className="header">
+
+      
+      <div className="imagecontainer">
+          <img className="logo" src={logo} draggable="false" alt="York University logo"/>
+        </div>
+        
         <div className="nav-bar-div">
           <a className="nav-bar"><Link className="nav-bar-element" to="/">Home</Link></a>
           <a className="nav-bar"><Link className="nav-bar-element" to="/about">About</Link></a>
           <a className="nav-bar"><Link className="nav-bar-element" to="/dashboard">Dashboard</Link></a>
         </div>
 
-        <div className="imagecontainer">
-          <img src={logo} alt="" />
         </div>
 
         <hr className="horizontal-break"/>
@@ -41,6 +46,7 @@ function App() {
             <Dashboard />
           </Route>
         </Switch>
+      
       </div>
     </Router>
 

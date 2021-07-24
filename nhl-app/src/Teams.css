@@ -39,9 +39,13 @@
   
   
   .teams {
+    margin: auto;
+    /* align-items: center; */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    width: 90%;
+
   }
   
   

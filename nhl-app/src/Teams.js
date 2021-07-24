@@ -49,12 +49,16 @@ const Teams = () => {
       <br></br>
       <div className="teams">
         {teams.map((team) => (
+          
           <Link to={`/moreInfo/${team.abbreviation}`}>
             <Team key={team.abbreviation}
             name={team.name}
             abbreviation={team.abbreviation}
             established={team.firstYearOfPlay}/>
           </Link>
+          
+
+
         ))}
       </div>
     </div>

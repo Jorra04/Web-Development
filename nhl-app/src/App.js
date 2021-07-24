@@ -6,7 +6,6 @@ import TeamDetail from "./TeamDetail";
 
 const App = () => {
   return (
-    // <Teams />
     <Router>
       <Switch>
         <Route path="/" exact component={Teams} />

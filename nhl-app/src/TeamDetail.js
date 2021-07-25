@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./TeamDetails.css";
+import LoadingScreen from "./LoadingScreen";
 
 const TeamDictionary = {
   NJD: 1,
@@ -57,7 +58,7 @@ function TeamDetail({ match }) {
   return (
     <div>
       {loading ? (
-        <LoadingPage />
+        <LoadingScreen />
       ) : (
         <TeamInfo
           name={team.teams[0].name}
@@ -85,14 +86,4 @@ const TeamInfo = ({ name, abbreviation, established }) => {
   );
 };
 
-const LoadingPage = () => {
-  return <div>Loading Page</div>;
-};
-
 export default TeamDetail;
-
-/*
-<div>{name}</div>
-      <div>{abbreviation}</div>
-      <div>{established}</div>
-*/

@@ -1,0 +1,17 @@
+.header {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.otherStuff {
+  display: flex;
+  flex-direction: row; /* default value; can be omitted */
+  flex-wrap: nowrap; /* default value; can be omitted */
+  justify-content: space-between;
+}
+
+#abbreviation {
+}
+
+#established {
+}
